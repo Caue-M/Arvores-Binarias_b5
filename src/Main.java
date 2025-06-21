@@ -13,7 +13,6 @@ public class Main {
         noB.esquerda = noD;
         noB.direita = noE;
 
-
         System.out.println("Contador de nós: ");
         System.out.println(contador.contar(noA));
         System.out.println("Exibição em pré ordem: ");
