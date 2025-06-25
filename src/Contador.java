@@ -66,51 +66,40 @@ public class Contador {
     }
 
     //Contador de nós recursivo, exercício 8
-        No raiz;
+    int contadorNos(No raiz) {
+        if (raiz == null) return 0;
+
         int cont = 0;
+        Queue<No> queue = new LinkedList<>();
+        queue.add(raiz);
 
-        int contadorNos() {
-            if (raiz == null) {
-                return 0;
+        while (!queue.isEmpty()) {
+            No atual = queue.poll();
+            if (atual.esquerda == null && atual.direita == null) {
+                cont++;
             }
-            Queue<No> queue = new LinkedList<>();
-            queue.add(raiz);
-
-            while (!queue.isEmpty()) {
-                No atual = queue.poll();
-
-                if (atual.esquerda == null && atual.direita == null) {
-                    cont++;
-                }
-                if (atual.direita != null) {
-                    queue.add(atual.direita);
-                }
-                if (atual.esquerda != null) {
-                    queue.add(atual.esquerda);
-                }
-            }
-            return cont;
+            if (atual.direita != null) queue.add(atual.direita);
+            if (atual.esquerda != null) queue.add(atual.esquerda);
         }
 
-    //Contador de nós com uso de pilha, exercício 10
-    int contadorNosPilha() {
-        if (raiz == null) {
-            return 0;
-        }
+        return cont;
+    }
+
+    int contadorNosPilha(No raiz) {
+        if (raiz == null) return 0;
+
+        int cont = 0;
         Stack<No> pilha = new Stack<>();
         pilha.add(raiz);
 
         while (!pilha.isEmpty()) {
             No atual = pilha.pop();
             cont++;
-
-            if (atual.esquerda != null) {
-                pilha.push(atual.esquerda);
-            }
-            if (atual.direita != null) {
-                pilha.push(atual.direita);
-            }
+            if (atual.esquerda != null) pilha.push(atual.esquerda);
+            if (atual.direita != null) pilha.push(atual.direita);
         }
+
         return cont;
     }
+
 }
