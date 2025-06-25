@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[] args) {
         //Testes de contagem
         Contador contador = new Contador();
+        Arvore arvore = new Arvore();
         No noA = new No("A");
         No noB = new No("B");
         No noC = new No("C");
@@ -35,5 +36,16 @@ public class Main {
         //Contador de nós com pilha
         int qtdeNosPilha = contador.contadorNosPilha(noA);
         System.out.print("\nTotal de nós com pilha: " + qtdeNosPilha);
+
+
+        //teste de contador em ordem da classe arvore, ex 11
+        int[] chaves = {1, 2, 3, 4, 5, 6};
+        for (int chave : chaves){
+            arvore.raiz = arvore.inserir(arvore.raiz, chave);
+        }
+
+        System.out.println("\nPercurso em ordem da arvore AVL");
+        arvore.emOrdem(arvore.raiz);
     }
-}
+    }
+

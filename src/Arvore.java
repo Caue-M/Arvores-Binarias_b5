@@ -1,56 +1,66 @@
 public class Arvore {
     No raiz;
-    int altura(No no){
+
+
+    //Classe usada para os exercicios a partir do ex11
+    int altura(No no) {
         if (no == null)
             return 0;
         return no.altura;
     }
 
-    //Exerciico 11, Inseeção dos balanceamentos
     int fatorBalanceamento(No no) {
         if (no == null)
             return 0;
         return altura(no.esquerda) - altura(no.direita);
     }
-    No rotacaoDireita(No y){
+
+    No rotacaoDireita(No y) {
         No x = y.esquerda;
         No temp = x.direita;
 
-        //realizar rotacao
         x.direita = y;
         y.esquerda = temp;
 
-        // att das alturas
         y.altura = Math.max(altura(y.esquerda), altura(y.direita)) + 1;
         x.altura = Math.max(altura(x.esquerda), altura(x.direita)) + 1;
 
         return x;
     }
-    No rotacaoEsquerda(No x){
-        No y = x.esquerda;
-        No temp = y.direita;
 
-        //realizar rotacao
+    No rotacaoEsquerda(No x) {
+        No y = x.direita;
+        No temp = y.esquerda;
+
         y.esquerda = x;
         x.direita = temp;
 
+        x.altura = Math.max(altura(x.esquerda), altura(x.direita)) + 1;
+        y.altura = Math.max(altura(y.esquerda), altura(y.direita)) + 1;
 
-        // att das alturas
-        x.altura = Math.max(altura(x.esquerda), altura(y.direita)) + 1;
-        y.altura = Math.max(altura(y.esquerda), altura(x.direita)) + 1;
-
-        return x;
+        return y;
     }
-    No inserir(No no, int chave) {
-        if (no == null)
-            return new No(chave);
 
-        if (chave < no.chave)
+    public void emOrdem(No no) {
+        if (no != null) {
+            emOrdem(no.esquerda);
+            System.out.print(no.chave + " ");
+            emOrdem(no.direita);
+        }
+    }
+
+    No inserir(No no, int chave) {
+        if (no == null) {
+            return new No(chave);
+        }
+
+        if (chave < no.chave) {
             no.esquerda = inserir(no.esquerda, chave);
-        else if (chave > no.chave)
+        } else if (chave > no.chave) {
             no.direita = inserir(no.direita, chave);
-        else
-            return no;
+        } else {
+            return no; // valores duplicados não são permitidos
+        }
 
         no.altura = 1 + Math.max(altura(no.esquerda), altura(no.direita));
 
@@ -78,5 +88,4 @@ public class Arvore {
 
         return no;
     }
-
 }
