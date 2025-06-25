@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 //Classe contador, utilizado para o EX - 2
 //Implementa teste na main
 public class Contador {
@@ -28,6 +31,22 @@ public class Contador {
             contarPosOrdem(no.esquerda);
             contarPosOrdem(no.direita);
             System.out.print(no.valor + ", ");
+        }
+    }
+    public void busca(No raiz){
+        if (raiz == null) return;
+        Queue<No> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        while(!fila.isEmpty()){
+            No atual = fila.poll();
+            System.out.print((atual.valor + ", "));
+            if(atual.esquerda != null){
+                fila.add(atual.esquerda);
+            }
+            if (atual.direita != null){
+                fila.add(atual.direita);
+            }
         }
     }
 }

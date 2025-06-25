@@ -22,5 +22,7 @@ public class Main {
         contador.contarEmOrdem(noA);
         System.out.println("\nExibição em Pós-Ordem");
         contador.contarPosOrdem(noA);
+        System.out.println("\nBusca na árvore");
+        contador.busca(noA);
     }
 }
