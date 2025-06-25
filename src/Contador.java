@@ -57,7 +57,14 @@ public class Contador {
         return contarNosFolha(no.esquerda) + contarNosFolha(no.direita);
     }
 
-    //Contador de nós-folha iterativo, exercício 8
+    //Exercicio 9, contador de nós reursivo
+    public int contarNosFolhaRecursivo(No no){
+        if (no == null)return 0;
+        if (no.esquerda == null && no.direita == null) return 1;
+        return contarNosFolha(no.esquerda) + contarNosFolha(no.direita);
+    }
+
+    //Contador de nós recursivo, exercício 8
         No raiz;
         int cont = 0;
 
