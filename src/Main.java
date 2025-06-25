@@ -28,5 +28,9 @@ public class Main {
         //Contador de nós iterativo
         int qtdeNos = contador.contadorNos();
         System.out.println("\nTotal de nós-folha iterativo: " + qtdeNos);
+
+        //Contador de nós com pilha
+        int qtdeNosPilha = contador.contadorNos();
+        System.out.print("\nTotal: " + qtdeNosPilha);
     }
 }

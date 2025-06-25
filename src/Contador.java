@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 //Classe contador, utilizado para o EX - 2
 //Implementa teste na main
@@ -90,4 +91,26 @@ public class Contador {
             }
             return cont;
         }
+
+    //Contador de nós com uso de pilha, exercício 10
+    int contadorNosPilha() {
+        if (raiz == null) {
+            return 0;
+        }
+        Stack<No> pilha = new Stack<>();
+        pilha.add(raiz);
+
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            cont++;
+
+            if (atual.esquerda != null) {
+                pilha.push(atual.esquerda);
+            }
+            if (atual.direita != null) {
+                pilha.push(atual.direita);
+            }
+        }
+        return cont;
+    }
 }
