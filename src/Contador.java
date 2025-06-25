@@ -14,4 +14,12 @@ public class Contador {
             contarPreOrdem(no.direita);
         }
     }
+    //contador "em ordem", utilizado para o exercicio 4
+    public void contarEmOrdem(No no) {
+        if (no != null) {
+            contarEmOrdem(no.esquerda);
+            System.out.print(no.valor + ", ");
+            contarEmOrdem(no.direita);
+        }
+    }
 }

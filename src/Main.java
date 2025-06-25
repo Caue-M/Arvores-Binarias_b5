@@ -15,7 +15,10 @@ public class Main {
 
         System.out.println("Contador de nós: ");
         System.out.println(contador.contar(noA));
+        System.out.println();
         System.out.println("Exibição em pré ordem: ");
         contador.contarPreOrdem(noA);
+        System.out.println("\nExibição Em Ordem: ");
+        contador.contarEmOrdem(noA);
     }
 }
