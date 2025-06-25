@@ -22,4 +22,12 @@ public class Contador {
             contarEmOrdem(no.direita);
         }
     }
+    //Contador pos ordem, exercicio 5
+    public void contarPosOrdem(No no) {
+        if (no != null) {
+            contarPosOrdem(no.esquerda);
+            contarPosOrdem(no.direita);
+            System.out.print(no.valor + ", ");
+        }
+    }
 }

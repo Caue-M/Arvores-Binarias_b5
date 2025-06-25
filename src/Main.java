@@ -20,5 +20,7 @@ public class Main {
         contador.contarPreOrdem(noA);
         System.out.println("\nExibição Em Ordem: ");
         contador.contarEmOrdem(noA);
+        System.out.println("\nExibição em Pós-Ordem");
+        contador.contarPosOrdem(noA);
     }
 }
