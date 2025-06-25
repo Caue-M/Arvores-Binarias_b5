@@ -56,4 +56,31 @@ public class Contador {
         if (no.esquerda == null && no.direita == null) return 1;
         return contarNosFolha(no.esquerda) + contarNosFolha(no.direita);
     }
+
+    //Contador de nós-folha iterativo, exercício 8
+        No raiz;
+        int cont = 0;
+
+        int contadorNos() {
+            if (raiz == null) {
+                return 0;
+            }
+            Queue<No> queue = new LinkedList<>();
+            queue.add(raiz);
+
+            while (!queue.isEmpty()) {
+                No atual = queue.poll();
+
+                if (atual.esquerda == null && atual.direita == null) {
+                    cont++;
+                }
+                if (atual.direita != null) {
+                    queue.add(atual.direita);
+                }
+                if (atual.esquerda != null) {
+                    queue.add(atual.esquerda);
+                }
+            }
+            return cont;
+        }
 }

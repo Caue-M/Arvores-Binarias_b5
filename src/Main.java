@@ -24,5 +24,9 @@ public class Main {
         contador.contarPosOrdem(noA);
         System.out.println("\nBusca na árvore");
         contador.busca(noA);
+
+        //Contador de nós iterativo
+        int qtdeNos = contador.contadorNos();
+        System.out.println("\nTotal de nós-folha iterativo: " + qtdeNos);
     }
 }
