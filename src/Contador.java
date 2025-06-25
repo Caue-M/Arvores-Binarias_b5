@@ -33,6 +33,7 @@ public class Contador {
             System.out.print(no.valor + ", ");
         }
     }
+    //Localizador de nós, exercício 6
     public void busca(No raiz){
         if (raiz == null) return;
         Queue<No> fila = new LinkedList<>();
@@ -48,5 +49,11 @@ public class Contador {
                 fila.add(atual.direita);
             }
         }
+    }
+    //Contador de nós-folha recursivo, exercício 7
+    public int contarNosFolha(No no){
+        if (no == null)return 0;
+        if (no.esquerda == null && no.direita == null) return 1;
+        return contarNosFolha(no.esquerda) + contarNosFolha(no.direita);
     }
 }
